@@ -1,10 +1,10 @@
-import React from 'react'
-
+import React from 'react';
+import DataBox from '../DataBox';
 const Notice = () => {
   return (
-    <div className="content">
-      this is notice
-    </div>
+    <>
+      <DataBox/>
+    </>
   )
 }
 

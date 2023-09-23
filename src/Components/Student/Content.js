@@ -4,7 +4,7 @@ import Home from './Home';
 import Notice from './Notice';
 import Issue from './Issue';
 import Profile from './Profile';
-import Tab from './Tab';
+import Tab from '../Tab';
 
 
 
@@ -32,7 +32,7 @@ const Content = () => {
           <label onClick={()=> {change_board("Home")}}>Home</label>
           <label onClick={()=> {change_board("Notice")}}>Notice</label>
           <label onClick={()=> {change_board("Issue")}}>Issue</label> 
-          <label onClick={()=> {change_board("Profile")}}>My Profile</label>
+          <label onClick={()=> {change_board("Profile")}}>Profile</label>
         </div>
       </div>
       <div className="Dashboard">

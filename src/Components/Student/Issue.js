@@ -2,7 +2,7 @@ import React from 'react'
 
 const Issue = () => {
   return (
-    <div className="content">
+    <div>
       this is issue
     </div>
   )

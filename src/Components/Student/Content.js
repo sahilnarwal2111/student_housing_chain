@@ -36,7 +36,7 @@ const Content = (props) => {
         </div>
       </div>
       <div className="Dashboard">
-        <Tab/>
+        <Tab type="Student"/>
         <div id="content">
           {(Option==="Home") && <Home/>}
           {(Option==="Notice") && <Notice/>}

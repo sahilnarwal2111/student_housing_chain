@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Update = () => {
+import DataBox from '../DataBox';
+let data=null;
+const Update = (props) => {
   return (
-    <div>
-      this is to update hostels 
-    </div>
+    <>
+      <DataBox data={data}/>
+    </>
   )
 }
 

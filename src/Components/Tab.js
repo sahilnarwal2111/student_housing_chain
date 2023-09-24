@@ -14,10 +14,11 @@ function changemode(color){
     
   }
 
-const Tab = () => {
+const Tab = (props) => {
     
     return (
         <div className="Tab">
+          <label> {props.type} </label>
           <label> <img src="./img/dark-mode.jpg" alt="" onClick={()=>{changemode("#282c34")}}/> </label>
           <label> <img src="./img/mode-light.png" alt="" style={{height:"30px",width:"30px"}} onClick={()=>{changemode("white")}}/> </label>
           <label> <img src="./img/aqua.png" alt="" onClick={()=>{changemode("aqua")}}/> </label>

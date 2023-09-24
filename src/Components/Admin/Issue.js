@@ -1,10 +1,11 @@
-import React from 'react'
-
-const Issue = () => {
+import React from 'react';
+import DataBox from '../DataBox';
+let data=null;
+const Issue = (props) => {
   return (
-    <div>
-      this is issue in admin
-    </div>
+    <>
+      <DataBox data={data}/>
+    </>
   )
 }
 

@@ -1,20 +1,28 @@
 import React from 'react'
-
-function tryloop()
+function check(data)
 {
-    let temp;
-    for(let i=0;i<10;i++)
-    {
-        temp=temp+<p>{i}</p>;
-    }
-    console.log(temp);
-    return temp;
+  if(data===null)
+  {
+    return (
+    <div className="noData">
+      <h3><u>No Data Available Currently...</u></h3>
+    </div>
+    )
+  }
+  else
+  {
+    return (
+      <div className="data">
+        data comes here...
+      </div>
+    )
+  }
 }
 const DataBox = (props) => {
   return (
-    <div className="data">
-        {tryloop()}
-    </div>
+    <>
+    {check(props.data)}
+    </>
   )
 }
 

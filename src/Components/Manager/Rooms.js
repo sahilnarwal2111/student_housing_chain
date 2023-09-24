@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Rooms = () => {
+import DataBox from '../DataBox';
+let data=null;
+const Rooms = (props) => {
   return (
-    <div>
-      available rooms
-    </div>
+    <>
+      <DataBox data={data}/>
+    </>
   )
 }
 

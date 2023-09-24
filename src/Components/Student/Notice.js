@@ -1,9 +1,11 @@
 import React from 'react';
 import DataBox from '../DataBox';
-const Notice = () => {
+
+let data=null;
+const Notice = (props) => {
   return (
     <>
-      <DataBox/>
+      <DataBox data={data}/>
     </>
   )
 }

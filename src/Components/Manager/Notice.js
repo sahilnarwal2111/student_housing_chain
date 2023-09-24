@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Notice = () => {
+import DataBox from '../DataBox';
+let data=null;
+const Notice = (props) => {
   return (
-    <div>
-      this is manager notice section.
-    </div>
+    <>
+      <DataBox data={data}/>
+    </>
   )
 }
 

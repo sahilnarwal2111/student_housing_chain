@@ -1,10 +1,11 @@
-import React from 'react'
-
-const Home = () => {
+import React from 'react';
+import DataBox from './DataBox';
+let data=null;
+const Home = (props) => {
   return (
-    <div>
-      this is home
-    </div>
+    <>
+      <DataBox data={data}/>
+    </>
   )
 }
 

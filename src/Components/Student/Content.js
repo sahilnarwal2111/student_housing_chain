@@ -1,14 +1,14 @@
 import React from 'react'
 import {useState} from 'react';
-import Home from './Home';
+import Home from '../Home';
 import Notice from './Notice';
 import Issue from './Issue';
-import Profile from './Profile';
+import Profile from '../Profile';
 import Tab from '../Tab';
 
 
 
-const Content = () => {
+const Content = (props) => {
   
   const [Option,setOption]=useState("Home");
 

@@ -7,12 +7,26 @@ import Issue from './Issue';
 import Update from './Update';
 import Profile from '../Profile';
 import Tab from '../Tab';
+
+
+
+let prev="Home";
 const Content = (props) => {
     const [Option, setOption] = useState("Home");
 
 
 
     function change_board(type) {
+
+        const dark=document.getElementById(type);
+        dark.style.backgroundColor='black';
+
+        //console.log("prev "+prev);
+        if(prev !== type){
+        const previous=document.getElementById(prev);
+        previous.style.removeProperty("background-color");
+        prev=type;
+        }
         console.log(type);
         setOption(type);
         console.log("Option -> " + Option)
@@ -23,11 +37,11 @@ const Content = (props) => {
         <div className="main" >
             <div className="Navbar">
                 <div className="Menu">
-                    <label onClick={() => { change_board("Home") }}>Home</label>
-                    <label onClick={() => { change_board("Notice") }}>Notice</label>
-                    <label onClick={() => { change_board("Issue") }}>Issue</label>
-                    <label onClick={() => { change_board("Update") }}>Update</label>
-                    <label onClick={() => { change_board("Profile") }}>Profile</label>
+                    <label id="Home" style={{backgroundColor:'black'}} onClick={() => { change_board("Home") }}>Home</label>
+                    <label id="Notice" onClick={() => { change_board("Notice") }}>Notice</label>
+                    <label id="Issue" onClick={() => { change_board("Issue") }}>Issue</label>
+                    <label id="Update" onClick={() => { change_board("Update") }}>Update</label>
+                    <label id="Profile" onClick={() => { change_board("Profile") }}>Profile</label>
                 </div>
             </div>
             <div className="Dashboard">

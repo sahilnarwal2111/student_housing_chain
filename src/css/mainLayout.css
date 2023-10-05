@@ -59,13 +59,13 @@
 }
 .Menu label{
     padding: 10px;
+    border-radius: 10px;
     border-bottom: solid 1px aqua;
-    transition: transform .1s ease;
+    transition: all 0.1s ease;
 
 }
-.Menu label:hover {
-    background-color: black;
-    transform: scale(1.1);
+.Menu :nth-child(n):hover {
+    background-color: purple;
 
 }
 .Dashboard{
@@ -139,7 +139,7 @@ footer{
     opacity: 0.5;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     .container{
         height: max-content;
     }

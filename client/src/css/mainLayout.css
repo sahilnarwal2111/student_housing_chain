@@ -25,10 +25,10 @@
 }
 .header img{
     display: block;
-    width: 100px;
-    height: 110px;
-    object-fit: contain;
-    border-radius: 50%;
+    width: 90px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 30px;
     padding-left: 20px;
 }
 .main

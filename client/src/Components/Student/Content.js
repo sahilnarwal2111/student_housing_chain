@@ -19,21 +19,19 @@ const Content = (props) => {
     const dark=document.getElementById(type);
     dark.style.backgroundColor='black';
 
-    console.log("prev "+prev);
+    //console.log("prev "+prev);
     if(prev !== type){
       const previous=document.getElementById(prev);
       previous.style.removeProperty("background-color");
       prev=type;
     }
-    console.log("type" + type);
-    console.log("prev "+prev);
-    if(type==="Home") setOption("Home");
-    else if(type==="Notice") setOption("Notice");
-    else if(type==="Issue") setOption("Issue");
-    else if(type==="Profile") setOption("Profile");
-    console.log("Option -> "+Option )
-    return type
+    // console.log("type" + type);
+    // console.log("prev "+prev);
+    
+    setOption(type);
+   // console.log("Option -> "+Option )
   }
+
   return (
 
     <div className="main" >

@@ -1,3 +1,4 @@
+import React from 'react'
 import './css/App.css';
 import './css/mainLayout.css';
 import Manager from "./Pages/Manager";
@@ -5,7 +6,7 @@ import Student from "./Pages/Student";
 import Admin from "./Pages/Admin";
 
 function App() {
-  let i=3;
+  let i=1;
   return (
     <div>
     {(i===1) && <Student/>}

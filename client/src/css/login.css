@@ -1,0 +1,10 @@
+.container{
+    position: fixed;
+    width: 100vh;
+    height: 100vh;
+    background-color:black;
+}
+.login{
+    display: flex;
+    background-color: white;
+}

@@ -6,6 +6,7 @@ import Student from "./Pages/Student";
 import Admin from "./Pages/Admin";
 
 import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 function App() {
   let i=1;
@@ -15,7 +16,7 @@ function App() {
     {(i===2) && <Manager/>}
 
     {(i===3) && <Admin/>} */}
-      <Login/>
+    <Login/>
     </div>
   );
 }

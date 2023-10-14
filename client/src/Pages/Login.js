@@ -26,27 +26,30 @@ const Login = () => {
 
 
     return (
-    <div className="container">
+    <div className="containerLogin">
         <div className="login">
             <div className='form' onSubmit={submit}>
                 <h1 className="startHeader">Student Housing Chain</h1>
                 <form className='loginInputs' action={()=>submit()}>
-                    <div>
+                    <div className="selection">
                         <input id="org" type="text" onChange={checkOrg} placeholder="Enter Organization Name"/>
-                        <select id="secOrg"></select>
+                        <ul>
+                            <li>Hello World</li>
+                            <li>Hello World</li>
+                        </ul>
                     </div>
-                    <div>
+                    <div className="selection">
                         <input id="hostel" type="text" onChange={checkHostel} placeholder="Enter Hostel ID"/>
-                        <select id="secHostel">
-                        </select>
+                        <ul>
+                            <li>Hello World</li>
+                            <li>Hello World</li>
+                            <li>Hello World</li>
+                        </ul>
                     </div>
-                    <div>
-                        <input id="userId" type="text" placeholder="User ID"/>
-                    </div>
-                    <div>
+                    <input id="userId" type="text" placeholder="User ID"/>
                     <input id="pass" type="password" placeholder="Password"/>
-                    </div>
                     <input type="submit" id="submit" placeholder="Submit"/>
+                    
                 </form>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import '../css/login.css';
 
-
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [org,setOrg]=useState("try");
@@ -28,9 +28,10 @@ const Login = () => {
     return (
     <div className="containerLogin">
         <div className="login">
-            <div className='form' onSubmit={submit}>
+            <div className='form'>
                 <h1 className="startHeader">Student Housing Chain</h1>
-                <form className='loginInputs' action={()=>submit()}>
+                <form className='loginInputs' onSubmit={submit}>
+                    <label><h3><u>Login</u></h3></label>
                     <div className="selection">
                         <input id="org" type="text" onChange={checkOrg} placeholder="Enter Organization Name"/>
                         <ul>
@@ -48,9 +49,11 @@ const Login = () => {
                     </div>
                     <input id="userId" type="text" placeholder="User ID"/>
                     <input id="pass" type="password" placeholder="Password"/>
-                    <input type="submit" id="submit" placeholder="Submit"/>
+                    <input type="submit" id="submit" onClick={submit} placeholder="Submit"/>
                     
                 </form>
+                <Link to="/signup" style={{alignSelf:"center", fontSize:"medium"}}>Create a new Hostel Chain?</Link>
+
             </div>
         </div>
     </div>

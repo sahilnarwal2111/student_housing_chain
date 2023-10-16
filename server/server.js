@@ -1,9 +1,10 @@
 const express = require("express");
 const cors=require('cors');
 const app = express();
+const bodyParser=require('body-parser')
 const mongoose=require('mongoose');
 app.use(cors());
-
+app.use(bodyParser.json());
 const db="mongodb+srv://admin:admin12345@cluster0.mitzpwb.mongodb.net/shc?retryWrites=true&w=majority&appName=AtlasApp";
 mongoose.connect(db
 ).then(

@@ -15,6 +15,11 @@ app.post("/api",(req,res) =>{
     res.json({"users":["world","student","three"]})
 });
 
+app.post("/getNewOrg",(req,res) => {
+    console.log(req.body);
+    res.send("/connected to getNewOrg");
+})
+
 
 app.listen(5000, ()=>{
     console.log("server started on port 5000");

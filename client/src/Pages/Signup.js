@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import '../css/login.css';
 import {Link} from 'react-router-dom'; 
 
@@ -27,10 +27,10 @@ const Signup = () => {
         }
         
     }
-    function submit(e)
+    function Submit(e)
     {
         e.preventDefault();
-        
+        let new_entry={};
         let orgName=document.getElementById("org");
         let pass=document.getElementById("pass");
         let confirmpass=document.getElementById("confirmpass");
@@ -51,7 +51,7 @@ const Signup = () => {
         }
         else
         {
-            let new_entry={
+            new_entry={
                 Name:orgName.value,
                 Password:pass.value,
                 Contact:contact.value,
@@ -61,9 +61,21 @@ const Signup = () => {
             }
             setInvalid("");
             setDetails(new_entry);
-
-
+            fetch("http://localhost:5000/getNewOrg",{ 
+                method:'POST',
+                body:JSON.stringify(new_entry),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then(
+              response => response.text()
+            ).then(
+              data => {
+                console.log(data)
+              }
+            )
         }
+            
         
 
 
@@ -74,7 +86,7 @@ const Signup = () => {
         <div className="login">
             <div className='form' >
                 <h1 className="startHeader">Student Housing Chain</h1>
-                <form className='loginInputs' onSubmit={submit}>
+                <form className='loginInputs' onSubmit={Submit}>
                         <label><h3><u>Sign Up</u></h3></label>
                         <input id="org" type="text" placeholder="Enter Organization Name" onChange={checkOrg}/>
                         <p>

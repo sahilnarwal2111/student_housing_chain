@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-function addOrg(data)
+export function addData(db,collection,data)
 {
     
 }

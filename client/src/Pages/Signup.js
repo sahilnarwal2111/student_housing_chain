@@ -1,31 +1,47 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import '../css/login.css';
 import {Link} from 'react-router-dom'; 
 
-
 const Signup = () => {
     
-    const [org,setOrg]=useState("try");
-    const [hostel,setHostel]=useState();
+    const [org,setOrg]=useState([]);
+    const [newOrg,setnewOrg]=useState(false);
     const [invalid,setInvalid]=useState();
-    const [details,setDetails]=useState({});
+    const [details,setDetails]=useState({Name:""});
+    function getAllOrg()
+    {
+        // import org from backend
+    }
     function checkOrg(event)
     {
         console.log(event.target.value);
-        setOrg(event.target.value);
+        console.log(newOrg);
+        if(event.target.value === "harshit" || event.target.value === "")
+        {
+            setnewOrg(false);
+        }
+        else 
+        {
+            setnewOrg(true);
+        }
+        
     }
-    function submit(e)
+    function Submit(e)
     {
         e.preventDefault();
-        
+        let new_entry={};
         let orgName=document.getElementById("org");
         let pass=document.getElementById("pass");
         let confirmpass=document.getElementById("confirmpass");
         let email=document.getElementById("email");
         let contact=document.getElementById("contact");
         let address=document.getElementById("address");
-        if(orgName.value==="" || pass.value==="" || confirmpass.value==="" || email.value==="" || contact.value==="" || address.value==="")
+        if(newOrg===false) 
+        {
+            setInvalid("*Org Name Not Available...")
+        }
+        else if(orgName.value==="" || pass.value==="" || confirmpass.value==="" || email.value==="" || contact.value==="" || address.value==="")
         {
             setInvalid("*Fill all the details properly...")
         }
@@ -35,7 +51,7 @@ const Signup = () => {
         }
         else
         {
-            let new_entry={
+            new_entry={
                 Name:orgName.value,
                 Password:pass.value,
                 Contact:contact.value,
@@ -45,26 +61,38 @@ const Signup = () => {
             }
             setInvalid("");
             setDetails(new_entry);
+            fetch("http://localhost:5000/getNewOrg",{ 
+                method:'POST',
+                body:JSON.stringify(new_entry),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then(
+              response => response.text()
+            ).then(
+              data => {
+                console.log(data)
+              }
+            )
         }
-       console.log(orgName.value);
+            
         
 
 
     }
-    function checkHostel(event)
-    {
-        console.log(event.target.value);
-    }
-
 
     return (
     <div className="containerLogin">
         <div className="login">
             <div className='form' >
                 <h1 className="startHeader">Student Housing Chain</h1>
-                <form className='loginInputs' onSubmit={submit}>
+                <form className='loginInputs' onSubmit={Submit}>
                         <label><h3><u>Sign Up</u></h3></label>
-                        <input id="org" type="text" placeholder="Enter Organization Name"/>
+                        <input id="org" type="text" placeholder="Enter Organization Name" onChange={checkOrg}/>
+                        <p>
+                        {newOrg===false && (<b style={{color:"red"}}> [X] Organization Name Unavailable Currently</b>)}
+                        {newOrg===true && (<b style={{color:"brown"}}> [O] Organzation Name Available</b>)}
+                        </p>
                         <input id="pass" type="password" placeholder="Enter Password"/>
                         <input id="confirmpass" type="password" placeholder="Confirm Password"/>
                         <input id="contact" type="text" placeholder="Enter Contact No."/>

@@ -59,6 +59,9 @@
     flex-direction: column;
     column-gap: 10px;
 }
+.loginInputs p{
+    text-align: left;
+}
 .loginInputs input,textarea{
     align-items: center;
     font-size:medium;

@@ -3,6 +3,8 @@ const cors=require('cors');
 const app = express();
 const bodyParser=require('body-parser')
 const mongoose=require('mongoose');
+const toDatabase=require('./addData');
+
 app.use(cors());
 app.use(bodyParser.json());
 const db="mongodb+srv://admin:admin12345@cluster0.mitzpwb.mongodb.net/shc?retryWrites=true&w=majority&appName=AtlasApp";
@@ -18,6 +20,7 @@ app.post("/api",(req,res) =>{
 
 app.post("/getNewOrg",(req,res) => {
     console.log(req.body);
+    toDatabase.addData(db,req.body.Name,req.body);
     res.send("/connected to getNewOrg");
 })
 

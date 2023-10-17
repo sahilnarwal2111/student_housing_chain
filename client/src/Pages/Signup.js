@@ -61,6 +61,7 @@ const Signup = () => {
             }
             setInvalid("");
             setDetails(new_entry);
+            // let ipAdd="localhost";
             fetch("http://localhost:5000/getNewOrg",{ 
                 method:'POST',
                 body:JSON.stringify(new_entry),
@@ -73,6 +74,8 @@ const Signup = () => {
               data => {
                 console.log(data)
               }
+            ).catch(
+                err => console.log(err)
             )
         }
             

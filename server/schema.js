@@ -1,28 +1,13 @@
-export function allOrg_schema()
+function shcSchema()
 {
     return ({
-        orgName:String,
-        adminId:String,
-        adminPass:String
+        Name:String,
+        Password:String,
+        Contact:String,
+        Email:String,
+        hostels:Array,
+        Address:String
     });
 }
-export function org_schema()
-{
-    return ({
-        hostelName:String,
-        managerId:String,
-        managerPass:String
-    });
-}
-export function hostel_schema()
-{
-    return ({
 
-    });
-} 
-export function student_schema()
-{
-    return ({
-
-    });
-}
+module.exports ={shcSchema};

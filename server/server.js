@@ -4,10 +4,14 @@ const app = express();
 const bodyParser=require('body-parser')
 const mongoose=require('mongoose');
 const toDatabase=require('./addData');
+const schema=require('./schema');
 
 app.use(cors());
 app.use(bodyParser.json());
 const db="mongodb+srv://admin:admin12345@cluster0.mitzpwb.mongodb.net/shc?retryWrites=true&w=majority&appName=AtlasApp";
+
+const shcModel=new mongoose.model('org',schema.shcSchema())
+
 mongoose.connect(db
 ).then(
     ()=> console.log("Connection successful...")
@@ -20,7 +24,7 @@ app.post("/api",(req,res) =>{
 
 app.post("/getNewOrg",(req,res) => {
     console.log(req.body);
-    toDatabase.addData(db,req.body.Name,req.body);
+    toDatabase.addData(db,req.body,shcModel);
     res.send("/connected to getNewOrg");
 })
 

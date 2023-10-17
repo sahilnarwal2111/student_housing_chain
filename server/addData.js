@@ -1,10 +1,9 @@
-const mongoose=require('mongoose');
 
-function addData(db,collection,data)
+async function addData(db,collection,data,model)
 {
-    console.log("in addData");
-    console.log(collection);
-    console.log(data);
+    let modelObject=new model(data);
+    let doc=await modelObject.save();
+    console.log(doc);
 }
 
 module.exports ={addData};

@@ -10,7 +10,7 @@ const Admin = () => {
   return (
     <div className="container">
         <Header/>
-        <Content/>
+        <Content data={data.state}/>
         <Footer/>
     </div>
   )

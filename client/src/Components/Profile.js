@@ -1,10 +1,12 @@
 import React from 'react'
 import DataBox from './DataBox';
-let data=null;
-const Profile = () => {
+const Profile = (props) => {
+  console.log("IN PROFILE");
+  console.log(props.data.Name);
   return (
     <>
-      <DataBox data={data}/>
+      <p>{props.data.Name}</p>
+      
     </>
   )
 }

@@ -13,8 +13,8 @@ import Tab from '../Tab';
 let prev="Home";
 const Content = (props) => {
     const [Option, setOption] = useState("Home");
-
-
+    console.log("IN CONTENT");
+    console.log(props.data);
 
     function change_board(type) {
 
@@ -51,7 +51,7 @@ const Content = (props) => {
                     {(Option === "Notice") && <Notice />}
                     {(Option === "Issue") && <Issue />}
                     {(Option === "Update") && <Update />}
-                    {(Option === "Profile") && <Profile />}
+                    {(Option === "Profile") && <Profile data={props.data}/>}
                 </div>
             </div>
         </div>

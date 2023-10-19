@@ -1,10 +1,11 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import '../css/login.css';
-import {Link} from 'react-router-dom'; 
+import {Link,useNavigate} from 'react-router-dom'; 
+import Admin from './Admin';
 
 const Signup = () => {
-    
+    const navigate=useNavigate();
     const [org,setOrg]=useState([]);
     const [newOrg,setnewOrg]=useState(false);
     const [invalid,setInvalid]=useState();
@@ -69,10 +70,11 @@ const Signup = () => {
                     'Content-Type':'application/json'
                 }
             }).then(
-              response => response.text()
+              response => response.json()
             ).then(
               data => {
-                console.log(data)
+                console.log(data);
+                navigate("/admin",{state:{...data}});
               }
             ).catch(
                 err => console.log(err)

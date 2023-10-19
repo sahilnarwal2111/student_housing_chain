@@ -10,22 +10,24 @@ app.use(cors());
 app.use(bodyParser.json());
 const db="mongodb+srv://admin:admin12345@cluster0.mitzpwb.mongodb.net/shc?retryWrites=true&w=majority&appName=AtlasApp";
 
-const shcModel=new mongoose.model('org',schema.shcSchema())
+const shcModel=new mongoose.model('organization',new mongoose.Schema(schema.shcSchema()))
 
+app.post("/setConnection",(req,res)=>{
+    console.log("connection here...");
+})
 mongoose.connect(db
 ).then(
     ()=> console.log("Connection successful...")
 ).catch(
     err => console.log(`Error Occured -> ${err}`)
 )
-app.post("/api",(req,res) =>{
-    res.json({"users":["world","student","three"]})
-});
 
 app.post("/getNewOrg",(req,res) => {
     console.log(req.body);
-    toDatabase.addData(db,req.body,shcModel);
-    res.send("/connected to getNewOrg");
+    const onDatabase=toDatabase.addData(db,req.body,shcModel);
+    console.log("server...");
+    console.log(onDatabase);
+    res.send({...onDatabase});
 })
 
 

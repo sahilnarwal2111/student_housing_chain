@@ -1,15 +1,16 @@
 import React from 'react';
-import {useState,useEffect} from 'react';
+import {useState,useContext} from 'react';
 import '../css/login.css';
 import {Link,useNavigate} from 'react-router-dom'; 
 import Admin from './Admin';
+import { DetailsContext } from '../Components/Details';
 
 const Signup = () => {
     const navigate=useNavigate();
     const [org,setOrg]=useState([]);
     const [newOrg,setnewOrg]=useState(false);
     const [invalid,setInvalid]=useState();
-    const [details,setDetails]=useState({Name:""});
+    const {setDetails}=useContext(DetailsContext);
     function getAllOrg()
     {
         // import org from backend
@@ -61,7 +62,7 @@ const Signup = () => {
                 Address:address.value
             }
             setInvalid("");
-            setDetails(new_entry);
+            setDetails({...new_entry});
             // let ipAdd="localhost";
             fetch("http://localhost:5000/getNewOrg",{ 
                 method:'POST',

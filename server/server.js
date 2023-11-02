@@ -12,6 +12,7 @@ const db="mongodb+srv://admin:admin12345@cluster0.mitzpwb.mongodb.net/shc?retryW
 
 const shcModel=new mongoose.model('organization',new mongoose.Schema(schema.shcSchema()))
 
+
 app.post("/setConnection",(req,res)=>{
     console.log("connection here...");
 })

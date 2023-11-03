@@ -75,7 +75,7 @@ const Signup = () => {
             ).then(
               data => {
                 console.log(data);
-                navigate("/admin",{state:{...new_entry}});
+                navigate("/admin");
               }
             ).catch(
                 err => console.log(err)

@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useContext, useState} from 'react'
+import { DetailsContext } from './Details';
 import DataBox from './DataBox';
-const Profile = (props) => {
+const Profile = () => {
+  const {details} = useContext(DetailsContext);
   console.log("IN PROFILE");
-  console.log(props.data.Name);
+  console.log(details);
   return (
     <>
-      <p>{props.data.Name}</p>
+      <p>{details.Name}</p>
       
     </>
   )

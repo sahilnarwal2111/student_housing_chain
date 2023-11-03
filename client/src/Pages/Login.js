@@ -8,8 +8,7 @@ const Login = () => {
     const [org,setOrg]=useState("try");
     const [hostel,setHostel]=useState();
     
-    
-    function checkOrg(event)
+    async function checkOrg(event)
     {
         console.log(event.target.value);
         setOrg(event.target.value);

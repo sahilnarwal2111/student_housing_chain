@@ -5,9 +5,17 @@ import '../css/login.css';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-    const [org,setOrg]=useState("try");
-    const [hostel,setHostel]=useState();
+    const [org,setOrg]=useState([]);
     
+    fetch("http://localhost:5000/getDetails",{
+        method:'GET' 
+    }).then(
+        response => response.json
+    ).then(
+        data => {
+            console.log(data);
+          }
+    )
     async function checkOrg(event)
     {
         console.log(event.target.value);

@@ -5,21 +5,21 @@ import '../css/login.css';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-    const [org,setOrg]=useState([]);
+    var organization_data=[];
     
     fetch("http://localhost:5000/getDetails",{
         method:'GET' 
     }).then(
-        response => response.json
+        response => response.json()
     ).then(
         data => {
-            console.log(data);
+            organization_data=data;
+            console.log(organization_data);
           }
     )
     async function checkOrg(event)
     {
         console.log(event.target.value);
-        setOrg(event.target.value);
     }
     function submit(e)
     {
@@ -61,6 +61,7 @@ const Login = () => {
                 </form>
                 <Link to="/signup" style={{alignSelf:"center", fontSize:"medium"}}>Create a new Hostel Chain?</Link>
 
+                <p>{organization_data} nerer</p>
             </div>
         </div>
     </div>

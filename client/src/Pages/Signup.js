@@ -95,7 +95,7 @@ const Signup = () => {
                 <form className='loginInputs' onSubmit={Submit}>
                         <label><h3><u>Sign Up</u></h3></label>
                         <input id="org" type="text" placeholder="Enter Organization Name" onChange={checkOrg}/>
-                        <p>
+                        <p style={{fontSize:"small",marginTop:"-10px"}}>
                         {newOrg===false && (<b style={{color:"red"}}> [X] Organization Name Unavailable Currently</b>)}
                         {newOrg===true && (<b style={{color:"brown"}}> [O] Organzation Name Available</b>)}
                         </p>

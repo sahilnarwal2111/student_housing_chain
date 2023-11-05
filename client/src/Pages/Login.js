@@ -20,6 +20,7 @@ const Login = () => {
     async function checkOrg(event)
     {
         console.log(event.target.value);
+    
     }
     function submit(e)
     {
@@ -39,20 +40,74 @@ const Login = () => {
                 <h1 className="startHeader">Student Housing Chain</h1>
                 <form className='loginInputs' onSubmit={submit}>
                     <label><h3><u>Login</u></h3></label>
-                    <div className="selection">
-                        <input id="org" type="text" onChange={checkOrg} placeholder="Enter Organization Name"/>
-                        <ul>
-                            <li>Hello World</li>
-                            <li>Hello World</li>
-                        </ul>
+                    <input id="org" type="text" onChange={checkOrg} placeholder="Enter Organization Name"/>
+                    
+                    <div className="search-list">
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+
+                        helodfskl<br/>
+                        flksafsfhelodfskl<br/>
+                        flksafsf
+
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        he
+                        he helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        he
+                        he helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+
+                        helod
+
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        he
+                        he helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+
+                        helod
+                        
+
+                        helodfskl<br/>
+                        flksafsfhelodfskl<br/>
+                        flksafsf
+
+                        helodfskl<br/>
+                        flksafsf
+                        helodfskl<br/>
+                        flksafsf
+                        he
+
                     </div>
-                    <div className="selection">
-                        <input id="hostel" type="text" onChange={checkHostel} placeholder="Enter Hostel ID"/>
-                        <ul>
-                            <li>Hello World</li>
-                            <li>Hello World</li>
-                            <li>Hello World</li>
-                        </ul>
+                    <input id="hostel" type="text" onChange={checkHostel} placeholder="Enter Hostel ID"/>
+                    <div className="search-list">
                     </div>
                     <input id="userId" type="text" placeholder="User ID"/>
                     <input id="pass" type="password" placeholder="Password"/>
@@ -60,8 +115,6 @@ const Login = () => {
                     
                 </form>
                 <Link to="/signup" style={{alignSelf:"center", fontSize:"medium"}}>Create a new Hostel Chain?</Link>
-
-                <p>{organization_data} nerer</p>
             </div>
         </div>
     </div>

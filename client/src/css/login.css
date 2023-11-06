@@ -48,21 +48,22 @@
     font-weight: bold;
 }
 .loginInputs{
+    position: relative;
+    z-index: 0;
     overflow: auto;
     display: flex;
-    flex-grow: 2;
+    flex-grow: 3;
     padding-top: 20px;
     margin-bottom:10px ;
     padding-bottom:20px;
     align-items: center;
     flex-direction: column;
-    column-gap: 10px;
 }
 .loginInputs p{
     text-align: left;
 }
 .loginInputs input,textarea{
-    
+    position: relative;
     align-items: center;
     margin-bottom: 20px;
     font-size:medium;
@@ -74,6 +75,8 @@
 
 }
 .search-list{
+    position: relative;
+    z-index: 1;
     padding: 10px;
     flex-direction: column;
     width: 75%;
@@ -82,8 +85,6 @@
     margin-bottom: 20px;
     color: black;
     overflow-y: auto;
-    min-height:20vh;
-    max-height: fit-content;
     border: solid 1px black;
     border-top: none;
     background-color: white;

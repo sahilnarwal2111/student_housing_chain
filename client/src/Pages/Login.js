@@ -5,8 +5,8 @@ import '../css/login.css';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const [matchOrg,setmatchOrg]=useState([]);
     var organization_data=[];
-    
     fetch("http://localhost:5000/getDetails",{
         method:'GET' 
     }).then(
@@ -17,10 +17,19 @@ const Login = () => {
             console.log(organization_data);
           }
     )
-    async function checkOrg(event)
+    function checkOrg(event)
     {
-        console.log(event.target.value);
-    
+        let input=event.target.value;
+        input=input.toLowerCase();
+        let temp=[]
+        for(let i=0;i<organization_data.length;i++)
+        {
+            if(organization_data[i].Name.toLowerCase().includes(input) || input==="")
+            {
+                temp=[...temp,organization_data[i].Name];
+            }
+        }
+        setmatchOrg(temp);
     }
     function submit(e)
     {
@@ -31,8 +40,6 @@ const Login = () => {
     {
         console.log(event.target.value);
     }
-
-
     return (
     <div className="containerLogin">
         <div className="login">
@@ -43,68 +50,13 @@ const Login = () => {
                     <input id="org" type="text" onChange={checkOrg} placeholder="Enter Organization Name"/>
                     
                     <div className="search-list">
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-
-                        helodfskl<br/>
-                        flksafsfhelodfskl<br/>
-                        flksafsf
-
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        he
-                        he helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        he
-                        he helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-
-                        helod
-
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        he
-                        he helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-
-                        helod
-                        
-
-                        helodfskl<br/>
-                        flksafsfhelodfskl<br/>
-                        flksafsf
-
-                        helodfskl<br/>
-                        flksafsf
-                        helodfskl<br/>
-                        flksafsf
-                        he
-
+                        {Object.values(matchOrg).map((item) => {
+                            return (
+                                <>
+                                {item}<br/>
+                                </>
+                            )
+                        })}
                     </div>
                     <input id="hostel" type="text" onChange={checkHostel} placeholder="Enter Hostel ID"/>
                     <div className="search-list">

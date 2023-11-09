@@ -41,7 +41,7 @@
     color: black;
     display: flex;
     padding: 10px;
-    flex-grow:1;
+    height: 10%;
 
     justify-content: center;
     align-items: center;    
@@ -52,11 +52,12 @@
     z-index: 0;
     overflow: auto;
     display: flex;
-    flex-grow: 3;
+    height: 90%;
     padding-top: 20px;
     margin-bottom:10px ;
     padding-bottom:20px;
     align-items: center;
+    
     flex-direction: column;
 }
 .loginInputs p{

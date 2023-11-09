@@ -41,57 +41,55 @@
     color: black;
     display: flex;
     padding: 10px;
-    flex-grow:1;
+    height: 10%;
 
     justify-content: center;
     align-items: center;    
     font-weight: bold;
 }
 .loginInputs{
+    position: relative;
+    z-index: 0;
     overflow: auto;
     display: flex;
-    flex-grow: 2;
-    gap: 20px;
+    height: 90%;
     padding-top: 20px;
     margin-bottom:10px ;
     padding-bottom:20px;
     align-items: center;
+    
     flex-direction: column;
-    column-gap: 10px;
 }
 .loginInputs p{
     text-align: left;
 }
 .loginInputs input,textarea{
-    align-items: center;
-    font-size:medium;
-    width: 80%;
-    min-height: 8%;
-    border: none;
-    box-shadow:0px 0px 5px 5px black;
-
-}
-.selection{
     position: relative;
     align-items: center;
+    margin-bottom: 20px;
     font-size:medium;
     width: 80%;
     min-height: 8%;
-    box-shadow:0px 0px 5px 5px black;
-    overflow-y:hidden;
-    overflow-x:hidden ;
+    border: solid 1px black;
+
+    box-shadow: 3px 4px 1px 1px #282c34;
+
 }
-.selection ul{
-    position: absolute;
-    overflow-x: hidden;
-    width: 100%;
+.search-list{
+    position: relative;
     z-index: 1;
-    color: white;
-    background-color: #282c34;
+    padding: 10px;
+    flex-direction: column;
+    width: 75%;
+    font-size:20px;
+    margin-top: -19px;
+    margin-bottom: 20px;
+    color: black;
+    overflow-y: auto;
+    border: solid 1px black;
+    border-top: none;
+    background-color: white;
 }
-.selection:hover{
-    position: inherit;
- }
 .selection input{
     align-items: center;
     font-size:medium;

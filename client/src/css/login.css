@@ -49,12 +49,14 @@
 }
 .loginInputs{
     position: relative;
+    top: 0;
+    left: 0;
     z-index: 0;
     overflow: auto;
     display: flex;
     height: 90%;
     padding-top: 20px;
-    margin-bottom:10px ;
+    margin-bottom:50px ;
     padding-bottom:20px;
     align-items: center;
     
@@ -66,29 +68,51 @@
 .loginInputs input,textarea{
     position: relative;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 30px;
     font-size:medium;
     width: 80%;
     min-height: 8%;
     border: solid 1px black;
 
+    border-radius: 10px;
     box-shadow: 3px 4px 1px 1px #282c34;
 
 }
 .search-list{
-    position: relative;
-    z-index: 1;
-    padding: 10px;
+    background: none;
+    position: absolute;
+    display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 100%;
+    max-height: 20vh;
     font-size:20px;
-    margin-top: -19px;
-    margin-bottom: 20px;
+
     color: black;
     overflow-y: auto;
     border: solid 1px black;
     border-top: none;
+    background-color: aqua;
+}
+.search-list label{
     background-color: white;
+    padding: 10px;
+    margin: none;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: solid 3px black;
+    border-bottom: solid 3px black;
+    border-right: solid 3px black;
+    transition: all .1s ease;
+}
+.search-list label:hover{
+    font-weight: 600;
+    background-color: aqua;
+    border-right: none;
+    color: #282c34;
+    border-left: none;
+    border-radius: 10px;
+    
 }
 .selection input{
     align-items: center;
@@ -105,6 +129,7 @@
 .loginInputs #submit{
     font-size:medium;
     align-self: center;
+    cursor: pointer;
     color: white;
     font-weight: bold;
     background-color: brown;
@@ -112,6 +137,19 @@
     min-height: 8%;
     border-radius: 10px;
     box-shadow:none;
+}
+.pos-rel{
+    position: relative;
+    width: 75%;
+    height: 0;
+    left: -11px;
+
+}
+.zIndex1{
+    z-index: 1;
+}
+.zIndex2{
+    z-index: 2;
 }
 .min-height-3{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

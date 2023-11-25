@@ -69,7 +69,7 @@
     position: relative;
     align-items: center;
     margin-top: 30px;
-    font-size:medium;
+    font-size:x-large;
     width: 80%;
     min-height: 8%;
     border: solid 1px black;
@@ -156,6 +156,9 @@
     min-height: 30%;
 }
 @media only screen and (max-width: 1500px){
+    .data-window{
+        width: 35% ;
+    }
     .login{
         width: 35% ;
     }
@@ -164,14 +167,23 @@
     .login{
         width: 40% ;
     }
+    .data-window{
+        width: 40% ;
+    }
 }
 @media only screen and (max-width: 1000px){
     .login{
         width: 50% ;
     }
+    .data-window{
+        width: 50% ;
+    }
 }
 @media only screen and (max-width: 800px){
     .login{
+        width: 60% ;
+    }
+    .data-window{
         width: 60% ;
     }
     .startHeader{
@@ -181,6 +193,9 @@
 @media only screen and (max-width: 650px){
     .login{
     width: 80% ;
+    }
+    .data-window{
+        width: 80%;
     }
     .startHeader{
     font-size: 20px;

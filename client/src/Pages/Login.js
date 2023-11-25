@@ -90,7 +90,9 @@ const Login = () => {
                 if(password === matchOrg[0].Password)
                 {
                     //console.log("to transfer");
-                    setDetails({...matchOrg[0]});
+                    let toTransfer= {...matchOrg[0]};
+                    delete toTransfer.Password;
+                    setDetails({...toTransfer});
                     navigate("/admin");
                 }
                 else{
@@ -130,7 +132,7 @@ const Login = () => {
                 <h1 className="startHeader">Student Housing Chain</h1>
                 <form autoComplete="off" className='loginInputs' onSubmit={submit}>
                     <label><h3><u>Login</u></h3></label>
-                    <input id="org" type="text"  value={selectOrg} su onChange={checkOrg} placeholder="Enter Organization Name"/>
+                    <input id="org" type="text"  value={selectOrg} onChange={checkOrg} placeholder="Enter Organization Name"/>
                     <div className="pos-rel"> 
                         <div className="search-list zIndex2">
                             {Object.values(matchOrg).map((item) => {

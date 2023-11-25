@@ -34,7 +34,7 @@ app.get("/getDetails",async (req,res) =>{
 
 app.post("/getNewOrg",async (req,res) => {
     console.log(req.body);
-    const onDatabase=toDatabase.addData(db,req.body,shcModel);
+    const onDatabase=await toDatabase.addData(db,req.body,shcModel);
     console.log("server...");
     console.log(onDatabase);
     res.send({...onDatabase});

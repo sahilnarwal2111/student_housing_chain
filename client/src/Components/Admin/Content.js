@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState} from 'react';
 import Home from '../Home';
 
@@ -15,6 +15,16 @@ const Content = (props) => {
     const [Option, setOption] = useState("Home");
     console.log("IN CONTENT");
     console.log(props.data);
+
+
+    // problem - same state again after refresh...
+    // useEffect(()=>{
+    //     if(Option != "Home" )localStorage.setItem('set_Nav_Option',Option);
+    // },[Option])
+    // useEffect(()=>{
+    //     let state=localStorage.getItem('set_Nav_Option')
+    //     setOption(state);
+    // })
 
     function change_board(type) {
 

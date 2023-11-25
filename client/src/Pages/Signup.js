@@ -36,7 +36,7 @@ const Signup = () => {
         }
         for(let i=0;i<organization_data.length;i++)
         {
-            if(organization_data[i].Name === input)
+            if(organization_data[i].Name.toLowerCase().trim().replace(/\s+/g, ' ') === input.toLowerCase().trim().replace(/\s+/g, ' '))
             {
                 setnewOrg(false);
                 return;
@@ -78,7 +78,7 @@ const Signup = () => {
                 Address:address.value
             }
             setInvalid("");
-            setDetails({...new_entry});
+            let toTransfer;
             // let ipAdd="localhost";
             fetch("http://localhost:5000/getNewOrg",{ 
                 method:'POST',
@@ -90,7 +90,12 @@ const Signup = () => {
               response => response.json()
             ).then(
               data => {
+                console.log("daTa -> ")
                 console.log(data);
+                toTransfer={...data._doc};
+                delete toTransfer.Password;
+
+                setDetails({...toTransfer});
                 navigate("/admin");
               }
             ).catch(
@@ -108,7 +113,7 @@ const Signup = () => {
         <div className="login">
             <div className='form' >
                 <h1 className="startHeader">Student Housing Chain</h1>
-                <form className='loginInputs' onSubmit={Submit}>
+                <form className='loginInputs' autoComplete='off' onSubmit={Submit}>
                         <label><h3><u>Sign Up</u></h3></label>
                         <input id="org" type="text" placeholder="Enter Organization Name" onChange={checkOrg}/>
                         <p style={{fontSize:"small",marginBottom:"-10px"}}>
@@ -125,7 +130,7 @@ const Signup = () => {
                             <b>*Note that organization main ID is predefined i.e. admin.</b><br/>
                             <b style={{color:"red"}}>{invalid}</b>
                          </p>
-                    <input type="submit" id="submit" placeholder="Submit"/>
+                    <input type="submit" id="submit" value="Submit"/>
                     
                 </form>
                 <Link to="/login" style={{alignSelf:"center", fontSize:"medium"}}>Organization already exist?</Link>

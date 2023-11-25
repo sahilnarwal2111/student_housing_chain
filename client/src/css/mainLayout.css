@@ -2,7 +2,9 @@
     position: absolute;
     display: flex;
     height:100vh;
+    
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     width: 100%;
 }
@@ -58,6 +60,7 @@
     flex-direction: column;
 }
 .Menu label{
+    cursor: pointer;
     padding: 10px;
     border-radius: 10px;
     border-bottom: solid 1px aqua;
@@ -101,6 +104,7 @@
     transform:scale(1.3);
 }
 .Tab label{
+   cursor:pointer;
    border-right: solid 1px aqua;
    border-left: solid 1px aqua;
    padding-left: 10px;
@@ -116,12 +120,15 @@
     overflow-x: hidden;
     overflow-y: auto;
     flex-grow: 50;
-    box-shadow: 0px 0px 15px 5px black;
+    box-shadow: 0px 0px 50px 5px black;
 }
 footer{
     background-color: black;
     color: white;
     width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: x-small;
     text-align: center;
     border-top: solid 2px aqua;
 }
@@ -138,10 +145,91 @@ footer{
     justify-content: center;
     opacity: 0.5;
 }
+.add-btn{
+    position: relative;
+    background-color: #282c34;
+    width: 0;
+    height: 0;
+}
+.add-btn label{
+    background-color: red;
+    font-weight: 400;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    top: -20px;
+    left: -10px;
+    z-index: 1;
+    position: absolute;
+    box-shadow: 2px 2px 20px 2px black;
+    transition: all .2s ease ;
+}
+.add-btn label:hover{
+    font-weight:bolder;
+}
+.add-btn label:active{
+    transform: translate(2px,0px);
+    box-shadow: 0px 0px 20px 2px black;
+}
+.new-window{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.9;
+    background-color: black;
+}
+.data-window{
+    position: absolute;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    left: 50%;
+    z-index: 3;
+    border-radius:20px;
+    border:solid 5px skyblue;
+    transform: translate(-50%,-50%);
+    background-color: wheat;
+    width: 30%;
+    height: 80%;
+}
+.close-menu {
+    padding:5px;
+    padding-left: 10px;
+    display: flex;
+}
+.close-menu label{
+    cursor: pointer;
 
-@media only screen and (max-width: 800px) {
+    border-radius: 50%;
+    padding: 4px;
+    font-weight:bold ;
+    font-size: small;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: red;
+    box-shadow: 0px 0px 10px 2px black;
+    color: white;
+}.close-menu label:hover{
+    background-color: rgb(175, 35, 35);
+}
+.close-menu label:active{
+    transform: scale(0.9);
+    box-shadow: 0 0 7px 3px black;
+}
+
+
+
+@media only screen and (max-width: 700px) {
     .container{
-        height: max-content;
+        max-height: max-content;
+    }
+    .header img{
+        display: none;
     }
     .header
     {
@@ -155,6 +243,7 @@ footer{
     }
     .Menu label{
         flex-grow: 1;
+        font-size: medium;
         text-align: center;
         border-bottom:none;
         border-right: solid 1px aqua;
@@ -166,10 +255,25 @@ footer{
     .Navbar{
         border-left:solid 5px aqua;
     }
+    .Menu :nth-child(n):hover{
+        border-bottom: none;
+    }
+    .Tab{
+        font-size: medium;
+    }
+    .Tab img{
+        width: 20px;
+        height: 20px;
+    }
     .Dashboard{
-        width: auto;
+        width: 100%;
+        font-size: medium;
     }
     .main{
         flex-direction:column ;
     }
+    footer{
+        font-size: xx-small;
+    }
   }
+

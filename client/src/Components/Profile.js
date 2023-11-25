@@ -7,7 +7,10 @@ const Profile = () => {
   console.log(details);
   return (
     <>
+      
       <p>{details.Name}</p>
+      <p>{details.Password}</p>
+      
       
     </>
   )

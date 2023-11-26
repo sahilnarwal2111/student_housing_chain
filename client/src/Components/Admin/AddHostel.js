@@ -1,6 +1,10 @@
-import React,{useState} from 'react'
-
+import React,{useContext, useState} from 'react'
+import { DetailsContext } from '../Details';
 const AddHostel = (props) => {
+
+  const {details}=useContext(DetailsContext);
+  const {setDetails}=useContext(DetailsContext);
+  
   function toggleWindow(){
     props.setNewStu((prev)=>{
       prev=!prev;
@@ -55,11 +59,39 @@ const AddHostel = (props) => {
           contact:contact,
           email:email,
           address:address,
+          appeal:[],
           issue:[],
-          notice:[]
+          notice:[],
+          students:[]
         }
-        console.log(object)
-        toggleWindow()
+       // console.log(object)
+
+        // insert data to backend here...
+        console.log(details)
+        let temp_hostels=[...details.hostels,object];
+        console.log(temp_hostels)
+        fetch("http://localhost:5000/newhostel",{ 
+            method:'POST',
+            body:JSON.stringify({Name:details.Name, data:temp_hostels}),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(
+          response => response.json()
+        ).then(
+          data => {
+            console.log("daTa -> ")
+            console.log(data);
+            let temp_details=details;
+            temp_details.hostels=temp_hostels;
+            setDetails({...temp_details});
+            toggleWindow()
+          }
+        ).catch(
+            err => console.log(err)
+        )
+
+        
       }
       else {
         console.log("invalid pass and confirm ..");
@@ -82,7 +114,7 @@ const AddHostel = (props) => {
           <div className="close-menu">
             <label onClick={toggleWindow}>X</label>
           </div>
-          <form className='loginInputs' onSubmit={submit}>
+          <form className='loginInputs' autoComplete='off' onSubmit={submit}>
             <input 
               type="text" 
               onChange={inputHostel} 

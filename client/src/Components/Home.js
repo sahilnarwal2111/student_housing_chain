@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import DataBox from './DataBox';
-let data=null;
+import {DetailsContext} from './Details';
+let data=[];
 const Home = (props) => {
+  const {details} = useContext(DetailsContext);
+  
   return (
     <>
-      <DataBox data={data}/>
+      <DataBox data={details.hostels}/>
     </>
   )
 }

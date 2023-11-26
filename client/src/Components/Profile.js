@@ -1,5 +1,6 @@
 import React,{useContext, useState} from 'react'
 import { DetailsContext } from './Details';
+import DataWindow from './DataWindow';
 import DataBox from './DataBox';
 const Profile = () => {
   const {details} = useContext(DetailsContext);
@@ -7,11 +8,7 @@ const Profile = () => {
   console.log(details);
   return (
     <>
-      
-      <p>{details.Name}</p>
-      <p>{details.Password}</p>
-      
-      
+      <DataWindow details={details}/>
     </>
   )
 }

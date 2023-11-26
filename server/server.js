@@ -23,20 +23,31 @@ mongoose.connect(db
     err => console.log(`Error Occured -> ${err}`)
 )
 
+
+
+app.post("/newhostel",async (req,res) =>{
+    let object=req.body;
+    console.log(req.body);
+    const onDatabase=await toDatabase.addHostel(db,req.body,shcModel);
+
+
+    res.send({...onDatabase});
+})
+
 app.get("/getDetails",async (req,res) =>{
     const result=await shcModel.find(); 
-    console.log("here");
-    console.log(result);
+    // console.log("here");
+    // console.log(result);
     res.send(result); 
 })
 
 
 
 app.post("/getNewOrg",async (req,res) => {
-    console.log(req.body);
+    //console.log(req.body);
     const onDatabase=await toDatabase.addData(db,req.body,shcModel);
-    console.log("server...");
-    console.log(onDatabase);
+    // console.log("server...");
+    // console.log(onDatabase);
     res.send({...onDatabase});
 })
 

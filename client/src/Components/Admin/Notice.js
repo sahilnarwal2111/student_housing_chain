@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import AddNotice from './AddNotice';
 import DataBox from '../DataBox';
-let data=null;
+let data=[];
 const Notice = (props) => {
 
   const [newNotice,setNewNotice]=useState(false);

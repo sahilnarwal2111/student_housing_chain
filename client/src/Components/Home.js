@@ -1,6 +1,6 @@
 import React from 'react';
 import DataBox from './DataBox';
-let data=null;
+let data=[];
 const Home = (props) => {
   return (
     <>

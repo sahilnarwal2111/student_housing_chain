@@ -7,4 +7,15 @@ async function addData(db,data,model)
     return {...doc};
 }
 
-module.exports ={addData};
+async function addHostel(db,data,model)
+{
+    let orgName=data.Name;
+    let result=await model.updateOne({Name:orgName},{
+        hostels:data.data
+    })
+    console.log(result);
+    return result;
+}
+
+
+module.exports ={addData,addHostel};

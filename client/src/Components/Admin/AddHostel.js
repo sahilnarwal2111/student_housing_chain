@@ -55,10 +55,13 @@ const AddHostel = (props) => {
           contact:contact,
           email:email,
           address:address,
+          appeal:[],
           issue:[],
-          notice:[]
+          notice:[],
+          students:[]
         }
         console.log(object)
+        // insert data to backend here...
         toggleWindow()
       }
       else {

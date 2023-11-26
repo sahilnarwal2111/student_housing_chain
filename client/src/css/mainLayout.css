@@ -221,7 +221,18 @@ footer{
     transform: scale(0.9);
     box-shadow: 0 0 7px 3px black;
 }
-
+.details-window{
+    display: flex;
+    flex-direction: column;
+}
+.key-value{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: solid 1px red;
+    display: flex;
+    font-size: large;
+    justify-content:space-between;
+}
 
 
 @media only screen and (max-width: 700px) {

@@ -5,6 +5,12 @@ const NewWindow = (props) => {
     function toggleWindow(){
         props.setToggleWindow(false);
     }
+
+    function deleteData(){
+        props.delFunc(props.toShow);
+        props.setToggleWindow(false);
+    }
+
     return (
         <>
             <div className='new-window'></div>
@@ -13,7 +19,9 @@ const NewWindow = (props) => {
                 <label onClick={toggleWindow}>X</label>
             </div>
                 <DataWindow details={props.toShow}/>
+                {props.del && <label className="btn-del" onClick={deleteData}>Remove</label>}
             </div>
+            
         </>
   )
 }

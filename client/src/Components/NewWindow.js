@@ -18,12 +18,12 @@ const NewWindow = (props) => {
             <div className="close-menu">
                 <label onClick={toggleWindow}>X</label>
             </div>
-                <DataWindow details={props.toShow}/>
+                <DataWindow dataspread={props.dataspread} details={props.toShow}/>
                 {props.del && <label className="btn-del" onClick={deleteData}>Remove</label>}
             </div>
             
         </>
-  )
+    )
 }
 
 export default NewWindow

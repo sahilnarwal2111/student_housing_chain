@@ -75,7 +75,9 @@ const Signup = () => {
                 Contact:contact.value,
                 Email:email.value,
                 hostels:[],
-                Address:address.value
+                Address:address.value,
+                notice:[],
+                appeals:[]
             }
             setInvalid("");
             let toTransfer;

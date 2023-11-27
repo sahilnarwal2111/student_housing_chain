@@ -25,7 +25,7 @@ mongoose.connect(db
 
 
 
-app.post("/newhostel",async (req,res) =>{
+app.post("/updatehostel",async (req,res) =>{
     let object=req.body;
     console.log(req.body);
     const onDatabase=await toDatabase.addHostel(db,req.body,shcModel);

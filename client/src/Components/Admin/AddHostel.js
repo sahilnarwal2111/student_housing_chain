@@ -97,7 +97,7 @@ const AddHostel = (props) => {
         console.log(details)
         let temp_hostels = [...details.hostels, object];
         console.log(temp_hostels)
-        fetch("http://localhost:5000/newhostel", {
+        fetch("http://localhost:5000/updatehostel", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Name, data: temp_hostels }),
           headers: {
@@ -174,7 +174,7 @@ const AddHostel = (props) => {
             value={address}
             placeholder='Enter Address'
           />
-          {invalid && (<p> Invalid Credentials </p>)}
+          {(invalid)?(<p style={{fontSize:'medium', color:"red"}}> *Invalid Credentials </p>): (<p> </p>)}
           <input
             id='submit'
             type="submit"

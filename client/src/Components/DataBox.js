@@ -19,7 +19,7 @@ const DataBox = (props) => {
   else 
     return (
       <>
-        {toggleWindow && <NewWindow del={props.del} setToggleWindow={setToggleWindow} toShow={toShow}/>}
+        {toggleWindow && <NewWindow del={props.del} delFunc={props.delFunc} setToggleWindow={setToggleWindow} toShow={toShow}/>}
         {
           Object.values(props.data).map((item) =>{
             console.log(item);

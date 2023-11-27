@@ -5,6 +5,11 @@ const NewWindow = (props) => {
     function toggleWindow(){
         props.setToggleWindow(false);
     }
+
+    // function deleteData(){
+
+    // }
+
     return (
         <>
             <div className='new-window'></div>
@@ -14,6 +19,7 @@ const NewWindow = (props) => {
             </div>
                 <DataWindow details={props.toShow}/>
             </div>
+            
         </>
   )
 }

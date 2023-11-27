@@ -17,7 +17,7 @@ const Update = () => {
       <div className="add-btn">
         <label onClick={openWindow}>+</label>
       </div>
-      <DataBox data={details.hostels}/>
+      <DataBox del={true} data={details.hostels}/>
     </>
   )
 }

@@ -7,7 +7,7 @@ const Home = (props) => {
   
   return (
     <>
-      <DataBox data={details.hostels}/>
+      <DataBox del={false} data={details.hostels}/>
     </>
   )
 }

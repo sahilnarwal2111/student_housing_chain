@@ -16,9 +16,26 @@ const Notice = (props) => {
     {
       temp_notice.splice(index,1);
     }
-    let temp_details=details;
-    temp_details.notice=temp_details.notice;
-    setDetails({...temp_details});
+    fetch("http://localhost:5000/updateNotice", {
+          method: 'POST',
+          body: JSON.stringify({ Name: details.Name, data: temp_notice }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(
+          response => response.json()
+        ).then(
+          data => {
+            console.log("daTa -> ")
+
+            let temp_details=details;
+            temp_details.notice=temp_details.notice;
+            console.log(data);
+            setDetails({...temp_details});
+          }
+        ).catch(
+          err => console.log(err)
+        )
   }
 
   return (

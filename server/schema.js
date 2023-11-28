@@ -6,7 +6,9 @@ function shcSchema()
         Contact:String,
         Email:String,
         hostels:Array,
-        Address:String
+        Address:String,
+        notice:Array,
+        appeal:Array
     });
 }
 

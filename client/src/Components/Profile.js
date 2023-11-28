@@ -8,7 +8,7 @@ const Profile = () => {
   console.log(details);
   return (
     <>
-      <DataWindow details={details}/>
+      <DataWindow dataspread={true} details={details}/>
     </>
   )
 }

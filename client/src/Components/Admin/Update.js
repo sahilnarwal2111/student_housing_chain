@@ -51,7 +51,7 @@ const Update = () => {
       <div className="add-btn">
         <label onClick={openWindow}>+</label>
       </div>
-      <DataBox del={true} delFunc={delHostel} data={details.hostels}/>
+      <DataBox dataspread={true} del={true} delFunc={delHostel} data={details.hostels}/>
     </>
   )
 }

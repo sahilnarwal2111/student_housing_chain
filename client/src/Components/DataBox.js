@@ -8,6 +8,8 @@ const DataBox = (props) => {
 
   console.log("in data box...")
   console.log(props.data)
+
+
   if (props.data.length===0)
   {
     return (
@@ -16,10 +18,12 @@ const DataBox = (props) => {
       </div>
       )
   }
-  else 
+  
+  else if(props.dataspread)
+  {    console.log("where "+typeof props.data[0]);
     return (
       <>
-        {toggleWindow && <NewWindow del={props.del} delFunc={props.delFunc} setToggleWindow={setToggleWindow} toShow={toShow}/>}
+        {toggleWindow && <NewWindow dataspread={true} del={props.del} delFunc={props.delFunc} setToggleWindow={setToggleWindow} toShow={toShow}/>}
         {
           Object.values(props.data).map((item) =>{
             console.log(item);
@@ -39,6 +43,31 @@ const DataBox = (props) => {
         }
       </>
     )
+  }
+  else
+  {
+    return (
+    <>
+    {toggleWindow && <NewWindow dataspread={props.dataspread} del={props.del} delFunc={props.delFunc} setToggleWindow={setToggleWindow} toShow={toShow}/>}
+    {
+      Object.keys(props.data).map((item) =>{
+        console.log(item);
+        return (
+          <div id={item} onClick={()=>{
+            console.log("toShow")
+            console.log(toShow)
+            setToShow(props.data[item])
+            setToggleWindow(true)
+            
+          }} className='Databox'>
+            <p>{props.data[item]}</p>
+          </div>
+        )
+      })
+    }
+    </>
+    )
+  }
 }
 
 export default DataBox

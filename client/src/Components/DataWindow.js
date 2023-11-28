@@ -1,6 +1,8 @@
 import React from 'react'
 
 const DataWindow = (props) => {
+  console.log(props.dataspread)
+  if(props.dataspread)
   return (
     <div className="details-window">
       {Object.keys(props.details).map((item)=>{
@@ -22,6 +24,12 @@ const DataWindow = (props) => {
         })}
     </div>
   )
+  else
+    return (
+      <div className="details-window">
+      <p>{props.details}</p>
+    </div>
+   )
 }
 
 export default DataWindow

@@ -7,12 +7,13 @@ async function addData(db,data,model)
     return {...doc};
 }
 
-async function addHostel(db,data,model)
-{
+async function addHostel(db,data,model,id)
+{   let temp=id;
     let orgName=data.Name;
     let result=await model.updateOne({Name:orgName},{
-        hostels:data.data
+        [temp]:data.data
     })
+    console.log("id")
     console.log(result);
     return result;
 }

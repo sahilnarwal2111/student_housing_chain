@@ -7,7 +7,10 @@ const Notice = (props) => {
   const {details}=useContext(DetailsContext);
   const [newNotice,setNewNotice]=useState(false);
   const {setDetails}=useContext(DetailsContext);
-
+  
+  
+  
+  
   function delNotice(item){
     console.log("delete here...")
     let temp_notice=details.notice;
@@ -37,6 +40,7 @@ const Notice = (props) => {
           err => console.log(err)
         )
   }
+
 
   return (
     <>

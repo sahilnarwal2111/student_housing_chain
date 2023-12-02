@@ -6,7 +6,13 @@ async function addData(db,data,model)
     console.log(doc);
     return {...doc};
 }
-
+async function getData(db,data,model)
+{
+    
+    let Name=data.Name;
+    let result=await model.findOne({Name});
+    return result;
+}
 async function addHostel(db,data,model,id)
 {   let temp=id;
     let orgName=data.Name;
@@ -19,4 +25,4 @@ async function addHostel(db,data,model,id)
 }
 
 
-module.exports ={addData,addHostel};
+module.exports ={addData,addHostel,getData};

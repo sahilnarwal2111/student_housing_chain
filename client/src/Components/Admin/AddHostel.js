@@ -95,7 +95,7 @@ const AddHostel = (props) => {
 
         // insert data to backend here...
         console.log(details)
-        let temp_hostels = [...details.hostels, object];
+        let temp_hostels = [ object, ...details.hostels];
         console.log(temp_hostels)
         fetch("http://localhost:5000/updatehostel", {
           method: 'POST',

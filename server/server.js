@@ -23,9 +23,15 @@ mongoose.connect(db
     err => console.log(`Error Occured -> ${err}`)
 )
 
+app.post("/getdata",async (req,res) =>{
+    console.log(req.body)
+    console.log("get here Data");
+    const onDatabase = await toDatabase.getData(db,req.body,shcModel);
+    res.send({...onDatabase});
+})
 
 app.post("/updateNotice",async (req,res) =>{
-    let object=req.body;
+    console.log("here")
     console.log(req.body);
     const onDatabase=await toDatabase.addHostel(db,req.body,shcModel,"notice");
     res.send({...onDatabase});

@@ -1,36 +1,37 @@
 .container {
     display: flex;
-    height:100vh;
-    
+    height: 100vh;
     display: flex;
-    overflow: hidden;
+    overflow: auto;
     flex-direction: column;
     width: 100%;
 }
 .header{
-    background-color: orangered;
+    background-color: #ff4500;
+    position: sticky;
+    top: 0;
+    left: 0;
     color: white;
     display: flex;
-    height: 10vh;
     min-width: fit-content;
     min-height: fit-content;
     align-items: center;
-    font-size: 15px;
+    font-size: xx-small;
     font-weight: bold;
-    padding: 5px;
+    padding: 0px;
     border-bottom: solid 4px aqua;
 }
 .header h1{
-    padding: 5px;
+    padding: 2px;
     padding-left: 20px;
 }
 .header img{
     display: block;
-    width: 90px;
-    height: 70px;
-    padding: 10px;
+    width: 0;
+    height: 0;
+    /* padding: 10px; */
     border-radius: 30px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 .main
 {
@@ -44,13 +45,13 @@
     background-color: #282c34;
     color: white;
     display: flex;
-    font-size: 25px;
+    font-size: medium;
     min-width: 15vh;
-    max-height: 90vh;
+    max-height: 93vh;
     overflow-y: auto;
     overflow-x: auto;
     flex-grow: 1;
-    padding: 10px;
+    padding: 5px;
     border-right: solid 5px aqua;
 }
 .Menu{
@@ -75,15 +76,16 @@
     display: flex;
     flex-direction: column;
     width: 90vh;
-    height: 90vh;
+    height: 93vh;
     background-color: #385590;
     color: white;
     flex-direction: column;
-    font-size: 25px;
+    font-size: medium;
     
 }
 .Tab{
     flex-grow: 1;
+    height: fit-content;
     display: flex;
     align-items:center;
     justify-content:flex-end;
@@ -93,8 +95,8 @@
 .Tab img{
     display:block;
     padding: 10px;
-    height: 30px;
-    width: 40px;
+    height: 20px;
+    width: 30px;
     border-radius: 50%;
     box-shadow:0px 0px 10px -5px blue;
     transition: transform .2s ease;
@@ -121,6 +123,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     flex-grow: 50;
+    border-radius: 20px 0 0 0;
     box-shadow: 0px 0px 50px 5px black;
 }
 footer{
@@ -229,7 +232,7 @@ footer{
     padding-right: 10px;
     border-bottom: solid 1px red;
     display: flex;
-    font-size: large;
+    font-size: small;
     justify-content:space-between;
 }
 
@@ -252,7 +255,7 @@ footer{
     transform: scale(1.03);
 }
 .Databox h3{
-    font-size: x-large;
+    font-size: medium;
     padding: 10px;
     font-weight: 500;
     padding-left: 15px;
@@ -266,12 +269,10 @@ footer{
     margin-bottom: none;
 }
 .Databox p{
-    font-size: large;
+    font-size: small;
     font-weight:500;
     padding-left: 15px;
     padding-right: 15px;
-    padding: -15px;
-
 }
 
 .btn-del{
@@ -300,7 +301,7 @@ footer{
     }
     .header
     {
-        font-size: small;
+        font-size: xx-small;
     }
     .Menu{
         flex-direction: row;
@@ -312,6 +313,7 @@ footer{
         flex-grow: 1;
         font-size: medium;
         text-align: center;
+        padding: 5px;
         border-bottom:none;
         border-right: solid 1px aqua;
     }

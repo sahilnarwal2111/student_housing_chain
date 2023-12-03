@@ -112,7 +112,24 @@ const Login = () => {
 
                 }
             }else{
-
+                if(matchHostel.length !== 1)
+                {
+                    console.log(matchHostel.length)
+                    console.log('wrong place hostel')
+                    setInvalid(true);
+                    return;
+                }
+                if(password === matchOrg[0].Password)
+                {
+                    //console.log("to transfer");
+                    let toTransfer= {...matchHostel[0],Org:matchOrg[0].Name};
+                    delete toTransfer.Password;
+                    setDetails({...toTransfer});
+                    navigate("/manager");
+                }
+                else{
+    
+                }
             }
         }
         else if(userid==="manager")
@@ -124,7 +141,7 @@ const Login = () => {
                 setInvalid(true);
                 return;
             }
-            if(password === matchHostel[0].Password)
+            if(password === matchHostel[0].Password )
             {
                 //console.log("to transfer");
                 let toTransfer= {...matchHostel[0],Org:matchOrg[0].Name};
@@ -135,7 +152,7 @@ const Login = () => {
             else{
 
             }
-    }
+        }
         console.log("here");
         setInvalid(true);
     }

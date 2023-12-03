@@ -9,7 +9,7 @@ const DataBox = (props) => {
   console.log("in data box...")
   console.log(props.data)
 
-
+  if(props.data===undefined || props.data===null) return;
   if (props.data.length===0)
   {
     return (

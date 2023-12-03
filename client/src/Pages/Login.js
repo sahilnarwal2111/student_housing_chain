@@ -20,6 +20,7 @@ const Login = () => {
     const {setDetails}=useContext(DetailsContext);
     const navigate=useNavigate();
     const [matchOrg,setmatchOrg]=useState([]);
+    const [totalHostel,setTotalHostel]=useState([]);
     const [selectOrg,setSelectedOrg]=useState("");
     const [matchHostel,setMatchHostel]=useState([]);
     const [selectHostel,setSelectHostel]=useState("");
@@ -33,21 +34,26 @@ const Login = () => {
     function checkOrg(event)
     {
         let input=event.target.value;
+        input=input.toLowerCase().replace(/\s+/g, ' ')
         setSelectedOrg(input);
-        input=input.toLowerCase();
 
         let temp=[]
         for(let i=0;i<organization_data.length;i++)
         {
-            if(organization_data[i].Name.toLowerCase() === input)
+            if(organization_data[i].Name.toLowerCase() === input.trim())
             {
                 //console.log("changed to object");
+                setTotalHostel(organization_data[i].hostels);
+
                 setSelectedOrg(organization_data[i].Name);
                 temp=[organization_data[i]]
                 setmatchOrg(organization_data[i])
                 break;
             }
-            if(organization_data[i].Name.toLowerCase().includes(input) || input==="")
+            else{
+                setTotalHostel([]);
+            }
+            if(organization_data[i].Name.trim().includes(input) || input==="")
             {
                 temp=[...temp,organization_data[i]];
             }
@@ -57,6 +63,10 @@ const Login = () => {
         // console.log("outside")
         setmatchOrg(temp);
     }
+
+
+
+
     function checkUser(event){
         let input = event.target.value;
         setUserid(input);
@@ -66,12 +76,15 @@ const Login = () => {
         setPassword(input);
     }
 
+
+
+
     function submit(e)
     {
         e.preventDefault();
-        console.log(selectOrg,selectHostel,userid,password)
-        console.log("submit chicked...");
-        console.log(matchOrg)
+        // console.log(selectOrg,selectHostel,userid,password)
+        // console.log("submit chicked...");
+        // console.log(matchOrg)
         if(matchOrg.length !== 1) 
         {
             // more than 1 data
@@ -80,9 +93,9 @@ const Login = () => {
             setInvalid(true);
             return;
         }
-        if(selectHostel==="")
+        if(userid==='admin')
         {
-            if(userid==='admin')
+            if(selectHostel==="")
             {
                 console.log("in admin")
                 console.log(matchOrg[0].Password)
@@ -98,6 +111,46 @@ const Login = () => {
                 else{
 
                 }
+            }else{
+                if(matchHostel.length !== 1)
+                {
+                    console.log(matchHostel.length)
+                    console.log('wrong place hostel')
+                    setInvalid(true);
+                    return;
+                }
+                if(password === matchOrg[0].Password)
+                {
+                    //console.log("to transfer");
+                    let toTransfer= {...matchHostel[0],Org:matchOrg[0].Name};
+                    delete toTransfer.Password;
+                    setDetails({...toTransfer});
+                    navigate("/manager");
+                }
+                else{
+    
+                }
+            }
+        }
+        else if(userid==="manager")
+        {
+            if(matchHostel.length !== 1)
+            {
+                console.log(matchHostel.length)
+                console.log('wrong place hostel')
+                setInvalid(true);
+                return;
+            }
+            if(password === matchHostel[0].Password )
+            {
+                //console.log("to transfer");
+                let toTransfer= {...matchHostel[0],Org:matchOrg[0].Name};
+                delete toTransfer.Password;
+                setDetails({...toTransfer});
+                navigate("/manager");
+            }
+            else{
+
             }
         }
         console.log("here");
@@ -107,24 +160,28 @@ const Login = () => {
     function checkHostel(event)
     {
         let input=event.target.value;
+        input=input.toLowerCase().replace(/\s+/g, ' ');
         setSelectHostel(input);
-        input=input.toLowerCase();
-        let temp=[]
-        console.log("jere");
-        for(let i=0;i<organization_data.length;i++)
-        {
-            if(organization_data[i].Name.toLowerCase()===input.toLowerCase())
-            {
-                let hostels=organization_data[i].hostels;
-                if(hostels.length==0) return;
-                let temp=[]
-                matchHostel({...organization_data[i].hostels});
-                break;
-            }
+        
+        if(totalHostel.length === 0 || input=== ""){
+            setMatchHostel([]);
+            return;
         }
+        let temp=[]
+        for(let i=0;i<totalHostel.length;i++)
+        {
+            if(totalHostel[i].Name.toLowerCase().includes(input))
+            {
+                temp=[...temp,totalHostel[i]];
+            }  
+        }
+        setMatchHostel(temp);
+        console.log("jere");
+        
 
     }
     console.log(matchOrg);
+    console.log(matchHostel);
     return (
     <div className="containerLogin">
         <div className="login">
@@ -143,6 +200,7 @@ const Login = () => {
                                     <>
                                     
                                     <label key={item.Name} onClick={()=>{
+                                        setTotalHostel(item.hostels);
                                         setSelectedOrg(item.Name);
                                         setmatchOrg([item])
                                      }}>{item.Name}</label>
@@ -154,16 +212,17 @@ const Login = () => {
                     <input id="hostel" type="text" value={selectHostel} onChange={checkHostel} placeholder="Enter Hostel ID"/>
                     <div className="pos-rel">
                         <div className="search-list zIndex1">
-                            {/* {matchHostel.map((item) => {
+                            {Object.values(matchHostel).map((item) => {
+                                if(selectHostel !== item.Name)
                                 return (
                                     <>
                                     <label key={item.Name} onClick={()=>{
                                         setSelectHostel(item.Name);
-                                        setMatchHostel([item.Name])
-                                    }}>{item}</label>
+                                        setMatchHostel([item])
+                                    }}>{item.Name}</label>
                                     </>
                                 )
-                            })} */}
+                            })}
                         </div>
                     </div>
                     <input id="userId" type="text" value={userid} onChange={checkUser} placeholder="User ID"/>

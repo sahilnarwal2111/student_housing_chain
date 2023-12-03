@@ -1,11 +1,11 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+import { DetailsContext } from '../Details';
 import DataBox from '../DataBox';
-let data=null;
 const Issue = (props) => {
+  const {details}=useContext(DetailsContext);
   return (
     <>
-      <DataBox data={data}/>
+      {(details !== "") && <DataBox dataspread={true} del={false} data={details.issue}/> }
     </>
   )
 }

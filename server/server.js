@@ -40,6 +40,7 @@ app.post("/updateNotice",async (req,res) =>{
 app.post("/updatehostel",async (req,res) =>{
     let object=req.body;
     console.log(req.body);
+    console.log(req.body.data[0].notice)
     const onDatabase=await toDatabase.addHostel(db,req.body,shcModel,"hostels");
 
 

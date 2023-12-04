@@ -242,7 +242,7 @@ footer{
     box-shadow: 5px 5px 30px 4px black;
     border-radius: 40px 0px 0px 10px;
     margin-top:5px;
-    min-height: 15vh;
+    height: 13vh;
     border: solid 2px red;
     border-right: none;
     margin-bottom: 5px;
@@ -253,6 +253,9 @@ footer{
 }
 .Databox:hover{
     transform: scale(1.03);
+}
+.Databox h4{
+    font-weight: 400;
 }
 .Databox h3{
     font-size: medium;

@@ -146,9 +146,9 @@ const AddStudent = (props) => {
               data => {
                 console.log("daTa -> ")
                 console.log(data);
-                let temp= details;
-                temp.hostels = temp_details;
-                setDetails(temp);
+                let temp= {...details};
+                temp.students=temp_students;
+                setDetails({...temp});
                 toggleWindow()
               }
             ).catch(

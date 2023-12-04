@@ -60,7 +60,7 @@ const DataBox = (props) => {
             setToggleWindow(true)
             
           }} className='Databox'>
-            <p>{props.data[item]}</p>
+            <h4>{props.data[item]}</h4>
           </div>
         )
       })

@@ -39,6 +39,7 @@ const Manager = () => {
                 break;
               }
             }
+            console.log("object is here ...")
             console.log(object);
             if (temp_details !== null && temp_details !== undefined) { setDetails({ ...object }) }
           }

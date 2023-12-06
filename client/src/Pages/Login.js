@@ -127,9 +127,6 @@ const Login = () => {
                     setDetails({...toTransfer});
                     navigate("/manager");
                 }
-                else{
-    
-                }
             }
         }
         else if(userid==="manager")
@@ -151,6 +148,27 @@ const Login = () => {
             }
             else{
 
+            }
+        }
+        else {
+            if(matchHostel.length !== 1)
+            {
+                console.log(matchHostel.length)
+                console.log('wrong place hostel')
+                setInvalid(true);
+                return;
+            }
+            else{
+                for(let i=0;i<matchHostel[0].students.length;i++)
+                {
+                    if(matchHostel[0].students[i]._id === userid && matchHostel[0].students[i].Password === password)
+                    {
+                        let object={Org:matchOrg[0].Name, Hostel:matchHostel[0].Name, ...matchHostel[0].students[i]};
+                        console.log(object);
+                        setDetails({...object});
+                        navigate("/student");
+                    }
+                }
             }
         }
         console.log("here");

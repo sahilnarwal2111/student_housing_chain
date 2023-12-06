@@ -7,6 +7,7 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import Admin from './Pages/Admin';
 import Manager from './Pages/Manager';
+import Student  from './Pages/Student';
 
 const Routing = () => {
   return (
@@ -16,6 +17,7 @@ const Routing = () => {
         <Route exact path="/signup" element={<Signup/>} />
         <Route exact path="/admin" element={<Admin/>} />
         <Route exact path="/manager" element={<Manager/>}/>
+        <Route exact path="/student" element={<Student/>}/>
     </Switch>
   )
 }

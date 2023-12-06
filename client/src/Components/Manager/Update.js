@@ -36,7 +36,7 @@ const Update = (props) => {
     console.log(temp_hostels)
 
 
-    fetch("http://localhost:5000/getdata",{
+    fetch(process.env.REACT_APP_PORT+"getdata",{
       method:'POST',
       body:JSON.stringify({Name:details.Org}),
       headers: {
@@ -64,7 +64,7 @@ const Update = (props) => {
         console.log(temp_details);
 
 
-        fetch("http://localhost:5000/updatehostel", {
+        fetch(process.env.REACT_APP_PORT+"updatehostel", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Org, data: temp_details }),
           headers: {

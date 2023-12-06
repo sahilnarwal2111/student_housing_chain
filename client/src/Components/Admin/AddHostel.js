@@ -97,7 +97,7 @@ const AddHostel = (props) => {
         console.log(details)
         let temp_hostels = [ object, ...details.hostels];
         console.log(temp_hostels)
-        fetch("http://localhost:5000/updatehostel", {
+        fetch(process.env.REACT_APP_PORT+"updatehostel", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Name, data: temp_hostels }),
           headers: {

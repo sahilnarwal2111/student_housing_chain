@@ -21,7 +21,7 @@ const Update = () => {
     console.log("removed from delHostel....")
     console.log(details.hostels);
     console.log(temp_hostels);
-    fetch("http://localhost:5000/updatehostel", {
+    fetch(process.env.REACT_APP_PORT+"hupdatehostel", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Name, data: temp_hostels }),
           headers: {

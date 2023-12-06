@@ -13,7 +13,7 @@ const Manager = () => {
     function getData() {
       console.log(details)
       if (details !== undefined && details !== null && details!=="")
-        fetch("http://localhost:5000/getdata", {
+        fetch(process.env.REACT_APP_PORT+"getdata", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Org }),
           headers: {

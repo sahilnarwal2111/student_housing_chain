@@ -20,7 +20,7 @@ const AddNotice = (props) => {
     console.log("on function");
     console.log(input);
     let temp_notice=[input, ...details.notice];
-    fetch("http://localhost:5000/updateNotice", {
+    fetch(process.env.REACT_APP_PORT+"updateNotice", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Name, data: temp_notice }),
           headers: {

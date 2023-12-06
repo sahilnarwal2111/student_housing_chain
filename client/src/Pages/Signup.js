@@ -7,7 +7,7 @@ import { DetailsContext } from '../Components/Details';
 
 var organization_data=[];
 console.log("fetching data...")
-fetch("http://localhost:5000/getDetails",{
+fetch(process.env.REACT_APP_PORT+"getDetails",{
     method:'GET' 
 }).then(
     response => response.json()
@@ -82,7 +82,7 @@ const Signup = () => {
             setInvalid("");
             let toTransfer;
             // let ipAdd="localhost";
-            fetch("http://localhost:5000/getNewOrg",{ 
+            fetch(process.env.REACT_APP_PORT+"getNewOrg",{ 
                 method:'POST',
                 body:JSON.stringify(new_entry),
                 headers:{

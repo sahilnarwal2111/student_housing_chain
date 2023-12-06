@@ -19,7 +19,7 @@ const Notice = (props) => {
     {
       temp_notice.splice(index,1);
     }
-    fetch("http://localhost:5000/updateNotice", {
+    fetch(process.env.REACT_APP_PORT+"updateNotice", {
           method: 'POST',
           body: JSON.stringify({ Name: details.Name, data: temp_notice }),
           headers: {

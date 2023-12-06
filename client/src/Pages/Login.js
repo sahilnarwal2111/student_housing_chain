@@ -5,7 +5,7 @@ import { DetailsContext } from '../Components/Details';
 import {Link, useNavigate } from 'react-router-dom';
 
 var organization_data=[];
-fetch("http://localhost:5000/getDetails",{
+fetch(process.env.REACT_APP_PORT+"getDetails",{
     method:'GET' 
 }).then(
     response => response.json()

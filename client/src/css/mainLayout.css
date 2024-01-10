@@ -1,3 +1,23 @@
+
+
+
+::-webkit-scrollbar {
+    width: .3em;
+    border-radius: 2px;
+    padding-left: 1px;
+  }
+   
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+
+  }
+   
+::-webkit-scrollbar-thumb {
+    
+    border-radius: 10px;
+    background-color:#6a6a6a;
+    outline: 20px solid aqua;
+}
 .container {
     display: flex;
     height: 100vh;
@@ -86,7 +106,7 @@
 }
 .Tab{
     flex-grow: 1;
-    height: 4vh;
+    min-height: 4vh;
     display: flex;
     align-items:center;
     justify-content:flex-end;
@@ -239,7 +259,7 @@ footer{
 .Databox{
     cursor: pointer;
     padding-left: 10px;
-    height: 13vh;
+    min-height: 13vh;
     border-bottom: solid 2px red;
     border-right: none;
     overflow: hidden;

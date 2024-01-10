@@ -3,20 +3,12 @@ import {useState,useEffect} from 'react';
 import '../css/login.css';
 import { DetailsContext } from '../Components/Details';
 import {Link, useNavigate } from 'react-router-dom';
+import Invalid from './Invalid';
 
 var organization_data=[];
-fetch(process.env.REACT_APP_PORT+"getDetails",{
-    method:'GET' 
-}).then(
-    response => response.json()
-).then(
-    data => {
-        organization_data=data;
-        console.log(organization_data);
-    }
-)
 
 const Login = () => {
+    const [err,seterr] = useState(false);
     const {setDetails}=useContext(DetailsContext);
     const navigate=useNavigate();
     const [matchOrg,setmatchOrg]=useState([]);
@@ -27,10 +19,24 @@ const Login = () => {
     const [userid,setUserid]=useState("");
     const [password,setPassword]=useState("");
     const [invalid,setInvalid]=useState(false);
-    // useEffect(() =>
-    // {
+    useEffect(() =>
+    {
         
-   // },[])
+        fetch(process.env.REACT_APP_PORT+"getDetails",{
+            method:'GET' 
+        }).then(
+            response => response.json()
+        ).then(
+            data => {
+                organization_data=data;
+                console.log(organization_data);
+            }
+        ).catch((err) =>{      
+            seterr(true)  
+            console.log("just here") 
+        })
+        
+   },[])
     function checkOrg(event)
     {
         let input=event.target.value;
@@ -200,6 +206,8 @@ const Login = () => {
     }
     console.log(matchOrg);
     console.log(matchHostel);
+    if(err) return <Invalid/>
+    else
     return (
     <div className="containerLogin">
         <div className="login">

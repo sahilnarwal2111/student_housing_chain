@@ -23,8 +23,8 @@ const Tab = (props) => {
     return (
         <div className="Tab">
           <label> {props.type} </label>
-          <label> <img src="./img/dark-mode.jpg" alt="" onClick={()=>{setDarkMode(true)}}/> </label>
-          <label> <img src="./img/mode-light.png" alt="" onClick={()=>{setDarkMode(false)}}/> </label>
+          {!darkMode && <label> <img src="./img/dark-mode.jpg" alt="" onClick={()=>{setDarkMode(true)}}/> </label>}
+          {darkMode && <label> <img src="./img/mode-light.png" alt="" onClick={()=>{setDarkMode(false)}}/> </label>}
         </div>
     )
 }

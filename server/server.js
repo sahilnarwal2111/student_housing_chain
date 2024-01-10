@@ -24,10 +24,12 @@ mongoose.connect(db
 )
 
 app.post("/getdata",async (req,res) =>{
+    
     console.log(req.body)
     console.log("get here Data");
     const onDatabase = await toDatabase.getData(db,req.body,shcModel);
     res.send({...onDatabase});
+    
 })
 
 app.post("/updateNotice",async (req,res) =>{

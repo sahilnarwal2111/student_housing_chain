@@ -5,7 +5,7 @@ const Issue = () => {
   const {details}=useContext(DetailsContext);
   return (
     <>
-      {(details !== "") && <DataBox dataspread={true} del={false} data={details.appeal}/>}
+      {(details !== "") && <DataBox dataspread={false} del={false} data={details.appeal}/>}
     </>
   )
 }
